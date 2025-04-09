@@ -9,8 +9,6 @@ class Solution(object):
 
         # K도 리스트에 넣어주어야 모든 원소를 k로 바꿀 수 있음 아니면 리스트중 제일 작은 값으로만 바꿈
         unique = list(sorted(set(nums + [k]), reverse = True))
-        nums.sort(reverse=True)
-
         for i in range(len(unique)):
             h = unique[i]
 
