@@ -6,3 +6,4 @@ class Solution:
                 if nums[i] == nums[j] and (i * j) % k == 0:
                     cnt += 1
         return cnt
+    
