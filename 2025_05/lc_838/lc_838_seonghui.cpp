@@ -5,53 +5,43 @@ using namespace std;
 
 class Solution {
 public:
-    void pushLeft(string dominoes, int idx, vector<int>& secs) {
-        int time = 0;
-
-        while (idx != 0 && dominoes[--idx] == '.') {
-            time -= 1;
-
-            if (abs(time) == abs(secs[idx])) {
-                secs[idx] = 0;
-                break;
-            }
-            // 절댓값이 작아야지만 이김
-            else if (!secs[idx] || abs(time) < abs(secs[idx])) secs[idx] = time;
-        }
-    }
-
-    void pushRight(string dominoes, int idx, vector<int>& secs) {
-        int time = 0;
-
-        while (idx != dominoes.size() - 1 && dominoes[++idx] == '.') {
-            time += 1;
-
-            if (abs(time) == abs(secs[idx])) {
-                secs[idx] = 0;
-                break;
-            }
-            else if (!secs[idx] || abs(time) < abs(secs[idx])) secs[idx] = time;
-        }
-    }
-
     string pushDominoes(string dominoes) {
-        vector<int> secs(dominoes.size(), 0);
-        string result;
-        
-        for (int i = 0; i < dominoes.size(); i++) {
-            if (i != 0 && dominoes[i] == 'L') {
-                pushLeft(dominoes, i, secs);
+        vector<signed char> secs(dominoes.size(), 0);
+        string result = dominoes;
+        int left = -1, right = -1;
+
+        for (int i = 0; i <= dominoes.size(); i++) {
+            char c = (i < dominoes.size()) ? dominoes[i] : 'R';  // 끝 처리
+
+            if (c == 'L') {
+                if (left < right) {
+                    int low = right + 1, high = i - 1;
+
+                    while (low < high) {
+                        result[low++] = 'R';
+                        result[high--] = 'L';
+                    }
+                }
+                else {
+                    // 지금까지 . 넘어뜨리기
+                    for (int j = left + 1; j < i; j++) {
+                        result[j] = 'L';
+                    }
+                }
+                left = i;
+                right = -1;
             }
-            else if (dominoes[i] == 'R') {
-                pushRight(dominoes, i, secs);
+            else if (c == 'R') {
+                if (right > left) {
+                    // 앞으로의 . 넘어뜨리기
+                    for (int j = right + 1; j < i; j++) {
+                        result[j] = 'R';
+                    }
+                }
+                right = i;
             }
         }
 
-        for (int i = 0; i < secs.size(); i++) {
-            if (secs[i] > 0) dominoes[i] = 'R';
-            else if (secs[i] < 0) dominoes[i] = 'L';
-        }
-
-        return dominoes;
+        return result;
     }
 };
