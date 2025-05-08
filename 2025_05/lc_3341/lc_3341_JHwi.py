@@ -26,5 +26,6 @@ class Solution:
                 ny = y + dy
 
                 if 0 <= nx < n and 0 <= ny < m and not visited[nx][ny]:
+                    # 현재시간이 문 열리는 시간보다 커야 건너갈수 있으니까
                     next_time = max(timeNow, moveTime[nx][ny]) + 1
                     heapq.heappush(heap, (next_time, nx, ny))
