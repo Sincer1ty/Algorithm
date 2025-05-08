@@ -18,7 +18,10 @@ class Solution:
                 continue
             visited[x][y] = True
 
-            
+            # 끝에 도착했다면 시간 리턴
+            if x==n-1 and y == m-1:
+                return timeNow
+
 
 
 
@@ -27,5 +30,5 @@ class Solution:
 # 이동에는 1초 소요
 
 # 시간이 흘렀을 때 열리는 문중 가장 값이 작은 인덱스로 이동하는 조건문을 만들자
-# 해당[i][j], 오른쪽[i][j+1], 아래[i+1][j] ... 해서
+# 해당[i][j], 오른쪽[i][j+1], 아래[i+1][j]
 # 비교하면서 하면 되려나?
