@@ -1,10 +1,9 @@
 class Solution:
     def triangleType(self, nums: List[int]) -> str:
-        c = nums.pop(nums.index(max(nums)))
-        b = nums.pop(nums.index(max(nums)))
-        a = nums.pop(nums.index(max(nums)))
-
-        print(a, b, c)
+        # c = nums.pop(nums.index(max(nums)))
+        # b = nums.pop(nums.index(max(nums)))
+        # a = nums.pop(nums.index(max(nums)))
+        a, b, c = sorted(nums)
 
         # 삼각형이 아니면
         if a+b <= c:
@@ -17,6 +16,4 @@ class Solution:
             return "isosceles"
         #걍 삼각형
         return "scalene"
-
-        
-        
+    
