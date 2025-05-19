@@ -20,4 +20,6 @@ class Solution:
         if len(arr) == 0:
             arr.append(words[n-1])
         return arr
+    
+    # 실패패
 
