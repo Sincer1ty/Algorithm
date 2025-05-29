@@ -44,6 +44,7 @@ class Solution:
                 for k in range(digits_len):
                     if i == k or j == k:
                         continue
+                    
                     first_digit = digits[i]
                     second_digit = digits[j]
                     third_digits = digits[k]
