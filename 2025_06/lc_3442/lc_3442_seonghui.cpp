@@ -22,7 +22,6 @@ public:
             else if (value % 2 != 0 && max < value) max = value;
         }
 
-
         return max - min;
     }
 };
