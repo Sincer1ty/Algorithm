@@ -22,9 +22,8 @@ public:
 
 			if (maxIdxs.size() >= k) {
 				result += maxIdxs[maxIdxs.size() - k] + 1;
-			}
+			} 
 		}
-		
 		return result;
 	}
 };
