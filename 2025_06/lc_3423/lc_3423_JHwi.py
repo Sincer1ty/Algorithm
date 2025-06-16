@@ -14,10 +14,7 @@ class Solution:
             else:
                 a = nums[i]
                 b = nums[i+1]
-            if a>b:
-                cur = abs(a-b)
-            else:
-                cur = abs(b-a)
+            cur = abs(a-b)
             if cur > maxNum:
                 maxNum = cur
         return maxNum
