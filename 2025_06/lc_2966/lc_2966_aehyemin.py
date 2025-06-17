@@ -5,12 +5,16 @@ class Solution:
         #한 배열의 모든 두 요소의 차이가 k만큼이거나 더 적다
         nums.sort()
         n = len(nums)
-        num = [nums[i-3:i] for i in range(3, n+1,3)]
-
-        for j in range(len(num)):
-            if max(num[j]) - min(num[j]) > k:
+        result = []
+        
+        for i in range(0,n,3):
+            if nums[i+2] - nums[i] > k:
                 return []
-        return num
+            result.append(nums[i:i+3])
+        return result
+        
+        
+        
 
 
 
