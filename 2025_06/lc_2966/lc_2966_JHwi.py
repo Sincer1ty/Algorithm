@@ -13,7 +13,8 @@ class Solution:
 
         for i in range(0,n,3):
             temp = nums[i:i+3]
-            if max(temp) - min(temp) > k:
+            # if max(temp) - min(temp) > k:
+            if temp[-1] - temp[0] > k:
                 return []
             result.append(temp)
         return result
