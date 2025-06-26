@@ -30,6 +30,13 @@
         <sub><b>하혜민</b></sub>
       </a>
     </td>
+    <td align="center">
+      <a href="https://github.com/hyojin425">
+        <img src="https://github.com/hyojin425.png" width="100px;" alt="hyojin425"/><br />
+        <sub><b>hyojin425</b></sub><br/>
+        <sub><b>임효진</b></sub>
+      </a>
+    </td>
   </tr>
 </table>
 
