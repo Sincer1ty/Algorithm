@@ -18,6 +18,3 @@ class Solution:
             if word[i] == word[i-1]:
                 ans += 1
         return ans
-
-
-        
