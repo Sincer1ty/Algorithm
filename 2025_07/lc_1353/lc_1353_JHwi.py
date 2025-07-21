@@ -8,7 +8,7 @@ class Solution:
         
         total = len(events)
         i = 0               # events 인덱스
-        attended = 0        # 답
+        result = 0        # 답
         day = 0
         pq = []             # 진행 중 행사들의 종료일 최소 힙
         
@@ -26,11 +26,11 @@ class Solution:
             # 오늘 참석할 행사 선택 (종료일이 가장 빠른 것)
             if pq:
                 heapq.heappop(pq)
-                attended += 1
+                result += 1
                 day += 1  # 다음 날로 이동
             
             # 이미 끝난 행사 제거
             while pq and pq[0] < day:
                 heapq.heappop(pq)
         
-        return attended
+        return result
